@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 const getAPI = axios.create({
-  baseURL: 'https://eyespiring-chatbot.herokuapp.com/',
+  baseURL: 'https://eyespiring-chatbot-server.herokuapp.com',
+  // baseURL: 'http://172.17.0.2:5000',
   timeout: 0
 })
 

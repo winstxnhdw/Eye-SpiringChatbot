@@ -198,6 +198,13 @@ export default {
   margin-right: auto;
 }
 
+@media screen and (min-width: 1366px) {
+  .chat-box {
+    width: 100vw;
+    height: 90vh;
+  }
+}
+
 .chat-input {
   display: flex;
 
