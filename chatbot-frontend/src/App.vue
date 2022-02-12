@@ -21,4 +21,10 @@ export default {
 #app {
   margin-top: 150px;
 }
+
+@media (max-width: 1000px) {
+  #app {
+    margin: 0;
+  }
+}
 </style>
