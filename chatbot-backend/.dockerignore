@@ -1,5 +1,4 @@
 __pycache__/
-model/
 Dockerfile
 .vscode
 .gitignore
