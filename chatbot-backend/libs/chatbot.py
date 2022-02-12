@@ -11,7 +11,7 @@ class ChatBot:
 
         device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-        with open('data/intents.json', 'r') as f:
+        with open("data/intents.json", 'r') as f:
             self.intents = load(f)
 
         data = torch.load("model/data.pth")

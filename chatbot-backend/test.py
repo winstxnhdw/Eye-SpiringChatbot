@@ -1,5 +1,5 @@
 from libs.chatbot import ChatBot
 
 bot = ChatBot()
-response = bot.reply('hello')
+response = bot.reply("can i cry with contact lens")
 print(response)

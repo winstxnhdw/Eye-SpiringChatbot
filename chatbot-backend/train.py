@@ -27,7 +27,7 @@ def main():
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-    with open('intents.json', 'r') as f:
+    with open("data/intents.json", 'r') as f:
         intents = json.load(f)
 
     all_words =[]
