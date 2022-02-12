@@ -198,7 +198,7 @@ export default {
   margin-right: auto;
 }
 
-@media screen and (min-width: 1366px) {
+@media (max-width: 1000px) {
   .chat-box {
     width: 100vw;
     height: 90vh;
