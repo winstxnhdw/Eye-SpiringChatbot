@@ -1,10 +1,10 @@
 import json
-from nltk_utils import *
 import numpy as np
-
 import torch
 import torch.nn as nn
+
 from torch.utils.data import Dataset, DataLoader
+from nltk_utils import *
 
 from model import NeuralNet
 
