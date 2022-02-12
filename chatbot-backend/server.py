@@ -1,7 +1,6 @@
 from flask import Flask
 from flask_cors import CORS
 
-
 def init_server():
     
     server = Flask(__name__)
