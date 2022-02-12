@@ -1,5 +1,5 @@
 <template>
-  <section class="chat-box">
+  <section class="chat-box" @mouseenter="zoom" @mouseleave="unzoom">
     <div class="chat-box-list-container" ref="chatbox">
       <ul class="chat-box-list">
         <div :class="message.author" v-for="(message, index) in messages" :key="index">
@@ -17,8 +17,9 @@
 </template>
 
 <script lang="ts">
-import get_chatbot_response from '@/axios'
+import gsap from 'gsap'
 import { onMounted } from 'vue'
+import get_chatbot_response from '@/axios'
 
 export default {
   name: 'ChatBox',
@@ -27,17 +28,63 @@ export default {
     messages: [],
 
     client_name: 'You',
-    server_name: 'Rosie'
+    server_name: 'Rosie',
+
+    zoom_scale: 1.02
   }),
 
   setup() {
     onMounted(() => {
-      console.log('Starting')
+      gsap.fromTo(
+        '.chat-box',
+        {
+          autoAlpha: 0,
+          filter: 'blur(10px)',
+          y: 100
+        },
+        {
+          autoAlpha: 1,
+          filter: 'blur(0px)',
+          y: 0,
+          ease: 'Expo.easeOut',
+          duration: 1.5
+        }
+      )
     })
   },
 
   methods: {
+    zoom() {
+      gsap.to('.chat-box', {
+        scale: this.zoom_scale,
+        duration: 0.5,
+        ease: 'Expo.easeOut'
+      })
+    },
+
+    unzoom() {
+      gsap.to('.chat-box', {
+        scale: 1.0,
+        duration: 0.5,
+        ease: 'Expo.easeOut'
+      })
+    },
+
+    shake_chat(element: string) {
+      gsap.to(element, {
+        x: '+=2',
+        y: '+=2',
+        repeat: 20,
+        duration: 0.02
+      })
+    },
+
     async send_message() {
+      if (this.message === '') {
+        this.shake_chat('.chat-box')
+        return
+      }
+
       this.messages.push({
         text: `${this.message}`,
         author: 'client'
@@ -149,9 +196,6 @@ export default {
   border-radius: 10px;
   margin-left: auto;
   margin-right: auto;
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
 }
 
 .chat-input {
