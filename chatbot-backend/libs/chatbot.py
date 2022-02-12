@@ -2,8 +2,8 @@ import random
 import json
 import torch
 
-from model import NeuralNet
-from nltk_utils import *
+from libs.model import NeuralNet
+from libs.nltk_utils import *
 
 class ChatBot:
 
@@ -14,9 +14,7 @@ class ChatBot:
         with open('data/intents.json', 'r') as f:
             self.intents = json.load(f)
 
-        FILE = "data.pth"
-        data = torch.load(FILE)
-
+        data = torch.load("model/data.pth")
         input_size = data["input_size"]
         hidden_size = data["hidden_size"]
         output_size = data["output_size"]
