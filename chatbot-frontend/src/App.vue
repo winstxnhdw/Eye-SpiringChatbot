@@ -1,16 +1,29 @@
 <template>
   <div id="app">
+    <MobileView v-if="!is_mobile" />
     <ChatBox />
   </div>
 </template>
 
 <script lang="ts">
 import ChatBox from '@/components/ChatBox.vue'
+import MobileView from '@/views/Mobile.vue'
 
 export default {
   name: 'App',
   components: {
-    ChatBox
+    ChatBox,
+    MobileView
+  },
+
+  methods: {
+    is_mobile() {
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        return true
+      } else {
+        return false
+      }
+    }
   }
 }
 </script>
