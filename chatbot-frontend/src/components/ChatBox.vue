@@ -2,11 +2,12 @@
   <section class="chat-box">
     <div class="chat-box-list-container" ref="chatbox">
       <ul class="chat-box-list">
-        <li class="message" :class="message.author" v-for="(message, index) in messages" :key="index">
-          <p>
-            <span>{{ message.text }}</span>
-          </p>
-        </li>
+        <div :class="message.author" v-for="(message, index) in messages" :key="index">
+          <div class="message-inner" :class="message.author">
+            <div class="username">{{ message.author == 'client' ? this.client_name : this.server_name }}</div>
+            <div class="content">{{ message.text }}</div>
+          </div>
+        </div>
       </ul>
     </div>
     <div class="chat-input">
@@ -46,10 +47,12 @@ export default {
         text: this.message
       })
 
-      this.messages.push({
-        text: `${chatbot_reply}`,
-        author: 'server'
-      })
+      if (chatbot_reply !== '') {
+        this.messages.push({
+          text: `${chatbot_reply}`,
+          author: 'server'
+        })
+      }
 
       this.message = ''
       this.$nextTick(() => {
@@ -70,12 +73,11 @@ export default {
 
 .chat-box-list-container {
   height: 100%;
+  margin-bottom: 1px;
   overflow-x: hidden;
   overflow-y: scroll;
-  -ms-overflow-style: none;
   scrollbar-width: none;
-  margin-bottom: 1px;
-
+  -ms-overflow-style: none;
   -webkit-scrollbar {
     display: none;
   }
@@ -84,63 +86,89 @@ export default {
 .chat-box-list {
   padding-left: 10px;
   padding-right: 10px;
-
-  span {
-    padding: 8px;
-    padding-left: 10px;
-    color: white;
-    border-radius: 4px;
-  }
-  .server {
-    span {
-      background: #99cc00;
-    }
-
-    p {
-      float: right;
-      text-align: left;
-      max-width: 45%;
-    }
-  }
+  display: flex;
+  padding: 20px;
 
   .client {
-    span {
-      background: #0070c8;
-    }
+    padding: 10px;
 
-    p {
-      float: left;
-      text-align: left;
+    .message-inner {
+      .username {
+        color: #000;
+        font-size: 12px;
+        margin-bottom: 5px;
+        padding-left: 15px;
+        padding-right: 10px;
+      }
+
+      .content {
+        display: inline-block;
+        padding: 10px 20px;
+        box-shadow: inset 0 0 0 500px rgba(255, 255, 255, 0.6);
+        border-radius: 20px;
+        font-size: 14px;
+        line-height: 1.2em;
+        text-align: left;
+        max-width: 70%;
+        word-wrap: break-word;
+      }
+    }
+  }
+
+  .server {
+    padding: 10px;
+    float: right;
+
+    .message-inner {
+      max-width: 70%;
+
+      .username {
+        text-align: right;
+        color: #000;
+        font-size: 12px;
+        margin-bottom: 5px;
+        padding-right: 25px;
+      }
+      .content {
+        display: inline-block;
+        padding: 10px 20px;
+        box-shadow: inset 0 0 0 500px rgba(255, 255, 255, 0.6);
+        border-radius: 20px;
+        font-size: 14px;
+        line-height: 1.2em;
+        text-align: left;
+      }
     }
   }
 }
 
 .chat-box {
-  margin: 10px;
-  border: 1px solid #fff;
-  width: 35vw;
-  height: 50vh;
-  border-radius: 4px;
+  width: 45vw;
+  height: 60vh;
+  box-shadow: inset 0 0 0 500px rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
   margin-left: auto;
   margin-right: auto;
-  align-items: space-between;
-  justify-content: space-between;
-  background-color: #fff;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
 }
 
 .chat-input {
   display: flex;
 
   input {
-    line-height: 3;
+    line-height: 4;
     width: 100%;
-    border: 1px solid #fff;
+    border: none;
     border-left: none;
     border-bottom: none;
     border-right: none;
-    border-bottom-left-radius: 4px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     padding-left: 15px;
     outline: none;
+    background: rgba(255, 255, 255, 0.3);
   }
 }
 </style>
