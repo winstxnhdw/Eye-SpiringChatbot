@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app">
     <ChatBox />
   </div>
 </template>
@@ -17,4 +17,8 @@ export default {
 
 <style>
 @import './assets/base.css';
+
+#app {
+  margin-top: 150px;
+}
 </style>

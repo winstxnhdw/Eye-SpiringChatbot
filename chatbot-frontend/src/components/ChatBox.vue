@@ -1,8 +1,8 @@
 <template>
-  <div class="chat-box">
-    <div class="chat-box-list-container">
+  <section class="chat-box">
+    <div class="chat-box-list-container" ref="chatbox">
       <ul class="chat-box-list">
-        <li class="message" v-for="(message, index) in messages" :key="index">
+        <li class="message" :class="message.author" v-for="(message, index) in messages" :key="index">
           <p>
             <span>{{ message.text }}</span>
           </p>
@@ -10,13 +10,14 @@
       </ul>
     </div>
     <div class="chat-input">
-      <input type="text" v-model="message" @keyup.enter="send_message" />
+      <input type="text" placeholder="Enter your message" v-model="message" @keyup.enter="send_message" />
     </div>
-  </div>
+  </section>
 </template>
 
 <script lang="ts">
-import { get_chatbot_response } from '@/axios'
+import get_chatbot_response from '@/axios'
+import { onMounted } from 'vue'
 
 export default {
   name: 'ChatBox',
@@ -28,10 +29,16 @@ export default {
     server_name: 'Rosie'
   }),
 
+  setup() {
+    onMounted(() => {
+      console.log('Starting')
+    })
+  },
+
   methods: {
     async send_message() {
       this.messages.push({
-        text: `${this.client_name}: ${this.message}`,
+        text: `${this.message}`,
         author: 'client'
       })
 
@@ -40,61 +47,100 @@ export default {
       })
 
       this.messages.push({
-        text: `${this.server_name}: ${chatbot_reply}`,
+        text: `${chatbot_reply}`,
         author: 'server'
       })
 
       this.message = ''
+      this.$nextTick(() => {
+        this.$refs.chatbox.scrollTop = this.$refs.chatbox.scrollHeight
+      })
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
-.chatbox,
+.chat-box,
 .chat-box-list {
   display: flex;
   flex-direction: column;
   list-style-type: none;
 }
 
-.chat-box {
-  border: 1px solid #fff;
-  width: 50vw;
-  height: 50vh;
-  box-shadow: 0 0 1rem 0 rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: space-between;
-  justify-content: space-between;
-}
+.chat-box-list-container {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  margin-bottom: 1px;
 
-.chat-input {
-  display: flex;
-
-  input {
-    line-height: 2;
-    width: 100%;
-    border-left: none;
-    border-bottom: none;
-    border-right: none;
-    border-bottom-left-radius: 4px;
-    padding-left: 15px;
+  -webkit-scrollbar {
+    display: none;
   }
 }
+
 .chat-box-list {
   padding-left: 10px;
   padding-right: 10px;
 
   span {
     padding: 8px;
+    padding-left: 10px;
     color: white;
     border-radius: 4px;
   }
+  .server {
+    span {
+      background: #99cc00;
+    }
+
+    p {
+      float: right;
+      text-align: left;
+      max-width: 45%;
+    }
+  }
+
+  .client {
+    span {
+      background: #0070c8;
+    }
+
+    p {
+      float: left;
+      text-align: left;
+    }
+  }
 }
 
-.chat-box-list-container {
-  overflow: scroll;
+.chat-box {
+  margin: 10px;
+  border: 1px solid #fff;
+  width: 35vw;
+  height: 50vh;
+  border-radius: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: space-between;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.chat-input {
+  display: flex;
+
+  input {
+    line-height: 3;
+    width: 100%;
+    border: 1px solid #fff;
+    border-left: none;
+    border-bottom: none;
+    border-right: none;
+    border-bottom-left-radius: 4px;
+    padding-left: 15px;
+    outline: none;
+  }
 }
 </style>
