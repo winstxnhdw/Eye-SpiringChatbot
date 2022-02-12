@@ -18,7 +18,15 @@ export default {
 
   methods: {
     is_mobile() {
-      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      if (
+        navigator.userAgent.match(/Android/i) ||
+        navigator.userAgent.match(/webOS/i) ||
+        navigator.userAgent.match(/iPhone/i) ||
+        navigator.userAgent.match(/iPad/i) ||
+        navigator.userAgent.match(/iPod/i) ||
+        navigator.userAgent.match(/BlackBerry/i) ||
+        navigator.userAgent.match(/Windows Phone/i)
+      ) {
         return true
       } else {
         return false
@@ -37,7 +45,7 @@ export default {
 
 @media (max-width: 1000px) {
   #app {
-    margin: 0;
+    margin: 30px;
   }
 }
 </style>

@@ -204,7 +204,7 @@ export default {
 @media (max-width: 1000px) {
   .chat-box {
     width: 100%;
-    height: 70vh;
+    height: 60vh;
     box-shadow: inset 0 0 0 500px rgba(255, 255, 255, 0.6);
     border-radius: 10px;
     margin-left: auto;
