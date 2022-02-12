@@ -90,6 +90,16 @@
         ]
       },
       {
+        "tag": "crying",
+        "patterns": [
+          "Can I cry with contact lenses",
+          "What happens when I tear with contact lenses"
+        ],
+        "responses": [
+          "There is currently no evidence in contemporary research that has shown any ill side effects from crying while wearing your lenses."
+        ]
+      },
+      {
         "tag": "stuck",
         "patterns": [
           "Will contact lenses get stuck in my eyes?",
