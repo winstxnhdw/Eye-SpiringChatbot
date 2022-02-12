@@ -128,9 +128,10 @@ export default {
   overflow-y: scroll;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  :-webkit-scrollbar {
-    display: none;
-  }
+}
+
+.chat-box-list-container::-webkit-scrollbar {
+  display: none;
 }
 
 .chat-box-list {
