@@ -1,0 +1,10 @@
+__pycache__/
+model/
+Dockerfile
+.vscode
+.gitignore
+
+*.sh
+*.md
+train.py
+test.py
