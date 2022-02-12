@@ -85,15 +85,16 @@ export default {
         return
       }
 
+      const message = this.message
+      this.message = ''
+
       this.messages.push({
-        text: `${this.message}`,
+        text: `${message}`,
         author: 'client'
       })
 
-      this.message = ''
-
       const chatbot_reply = await get_chatbot_response({
-        text: this.message
+        text: message
       })
 
       if (chatbot_reply !== '') {
@@ -103,6 +104,7 @@ export default {
         })
       }
 
+      this.message = ''
       this.$nextTick(() => {
         this.$refs.chatbox.scrollTop = this.$refs.chatbox.scrollHeight
       })
@@ -202,7 +204,7 @@ export default {
 @media (max-width: 1000px) {
   .chat-box {
     width: 100%;
-    height: 100%;
+    height: 70vh;
     box-shadow: inset 0 0 0 500px rgba(255, 255, 255, 0.6);
     border-radius: 10px;
     margin-left: auto;
