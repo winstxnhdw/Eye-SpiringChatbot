@@ -3,7 +3,7 @@ import json
 import torch
 
 from libs.model import NeuralNet
-from libs.nltk_utils import *
+from libs.nltk_utils import bag_of_words, tokenize
 
 class ChatBot:
 
