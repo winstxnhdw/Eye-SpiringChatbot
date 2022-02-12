@@ -1,11 +1,11 @@
 <template>
-  <div id="app">
+  <div>
     <ChatBox />
   </div>
 </template>
 
 <script lang="ts">
-import ChatBox from './components/ChatBox.vue'
+import ChatBox from '@/components/ChatBox.vue'
 
 export default {
   name: 'App',

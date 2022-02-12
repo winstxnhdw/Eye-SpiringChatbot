@@ -4,7 +4,7 @@
       <ul class="chat-box-list">
         <li class="message" v-for="(message, index) in messages" :key="index">
           <p>
-            <span> {{ message.text }}</span>
+            <span>{{ message.text }}</span>
           </p>
         </li>
       </ul>
@@ -16,19 +16,35 @@
 </template>
 
 <script lang="ts">
+import { get_chatbot_response } from '@/axios'
+
 export default {
   name: 'ChatBox',
   data: () => ({
     message: '',
-    messages: []
+    messages: [],
+
+    client_name: 'You',
+    server_name: 'Rosie'
   }),
 
   methods: {
-    send_message() {
+    async send_message() {
       this.messages.push({
-        text: this.message,
-        author: 'You'
+        text: `${this.client_name}: ${this.message}`,
+        author: 'client'
       })
+
+      const chatbot_reply = await get_chatbot_response({
+        text: this.message
+      })
+
+      this.messages.push({
+        text: `${this.server_name}: ${chatbot_reply}`,
+        author: 'server'
+      })
+
+      this.message = ''
     }
   }
 }
@@ -43,12 +59,15 @@ export default {
 }
 
 .chat-box {
-  top: 10%;
+  border: 1px solid #fff;
   width: 50vw;
+  height: 50vh;
   box-shadow: 0 0 1rem 0 rgba(255, 255, 255, 0.2);
   border-radius: 4px;
   margin-left: auto;
   margin-right: auto;
+  align-items: space-between;
+  justify-content: space-between;
 }
 
 .chat-input {
@@ -63,5 +82,19 @@ export default {
     border-bottom-left-radius: 4px;
     padding-left: 15px;
   }
+}
+.chat-box-list {
+  padding-left: 10px;
+  padding-right: 10px;
+
+  span {
+    padding: 8px;
+    color: white;
+    border-radius: 4px;
+  }
+}
+
+.chat-box-list-container {
+  overflow: scroll;
 }
 </style>
