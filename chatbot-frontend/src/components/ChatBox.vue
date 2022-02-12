@@ -90,6 +90,8 @@ export default {
         author: 'client'
       })
 
+      this.message = ''
+
       const chatbot_reply = await get_chatbot_response({
         text: this.message
       })
@@ -101,7 +103,6 @@ export default {
         })
       }
 
-      this.message = ''
       this.$nextTick(() => {
         this.$refs.chatbox.scrollTop = this.$refs.chatbox.scrollHeight
       })
