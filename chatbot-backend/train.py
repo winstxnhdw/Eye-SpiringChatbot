@@ -65,8 +65,8 @@ def main():
     Y_train = array(Y_train)
 
     # CONSTANTS
-    batch_size = 8
-    hidden_size = 8
+    batch_size = 16
+    hidden_size = 16
     output_size = len(tags)
     input_size = len(X_train[0])
     learning_rate = 0.001

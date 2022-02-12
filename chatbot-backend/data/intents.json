@@ -78,15 +78,61 @@
         ]
       },
       {
-        "tag": "funny",
+        "tag": "move",
         "patterns": [
-          "Tell me a joke!",
-          "Tell me something funny!",
-          "Do you know a joke?"
+          "Can contact lenses go behind my eye?",
+          "Can contact lenses come out of my eye?",
+          "Will contact lenses drop out of my eye?",
+          "Can it wiggle out of my eye?"
         ],
         "responses": [
-          "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
-          "What did the buffalo say when his son left for college? Bison."
+          "Nope, it stays in your eye with proper fitting!"
+        ]
+      },
+      {
+        "tag": "stuck",
+        "patterns": [
+          "Will contact lenses get stuck in my eyes?",
+          "Can it be glued to my eye?"
+        ],
+        "responses": [
+          "Contact lenses can be removed using the method your Eye Care Professional recommended."
+        ]
+      },
+      {
+        "tag": "scratch",
+        "patterns": [
+          "Can contact lenses scratch your eyes?",
+          "Is contact lenses sharp?"
+        ],
+        "responses": [
+          "Most contact lens-related problems are due to poorly fitted lenses or poor care of the lenses. If there is changes to your vision or discomfort, remove your lenses and seek your Eye Care Professional immediately."
+        ]
+      },
+      {
+        "tag": "whyprescription",
+        "patterns": [
+          "Why do I need a prescription for contact lenses?",
+          "What is the difference between contact lens prescription and spectacles?"
+        ],
+        "responses": [
+          "Contact lenses need to fit the diameter of the eye, therefore it will have a different prescription for your glasses."
+        ]
+      },
+      {
+        "tag": "emergency",
+        "patterns": [
+          "I have red eye",
+          "I have sudden loss of vision",
+          "I slept with contact lens last night",
+          "I cannot see properly",
+          "My eyes are very painful",
+          "It is pain",
+          "My vision is blurry",
+          "I am blind"
+        ],
+        "responses": [
+          "Book an appointment with your Eye Care Professional as soon as possible!"
         ]
       }
     ]
