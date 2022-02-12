@@ -1,8 +1,8 @@
 import json
 import torch
 import torch.nn as nn
-import numpy as np
 
+from numpy import array
 from torch.utils.data import Dataset, DataLoader
 from libs.nltk_utils import bag_of_words, stem, tokenize
 from libs.model import NeuralNet
@@ -20,7 +20,7 @@ class ChatDataset(Dataset):
         return self.x_data[index], self.y_data[index]
 
     def __len__(self):
-        
+
         return self.n_samples
 
 def main():
@@ -61,8 +61,8 @@ def main():
         label = tags.index(tag)
         Y_train.append(label)
 
-    X_train = np.array(X_train)
-    Y_train = np.array(Y_train)
+    X_train = array(X_train)
+    Y_train = array(Y_train)
 
     # CONSTANTS
     batch_size = 8

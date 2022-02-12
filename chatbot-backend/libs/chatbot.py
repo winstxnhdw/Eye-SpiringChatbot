@@ -1,7 +1,7 @@
 import random
-import json
 import torch
 
+from json import load
 from libs.model import NeuralNet
 from libs.nltk_utils import bag_of_words, tokenize
 
@@ -12,7 +12,7 @@ class ChatBot:
         device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
         with open('data/intents.json', 'r') as f:
-            self.intents = json.load(f)
+            self.intents = load(f)
 
         data = torch.load("model/data.pth")
         input_size = data["input_size"]

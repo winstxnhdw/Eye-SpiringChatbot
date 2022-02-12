@@ -14,11 +14,7 @@ def bag_of_words(tokenized_sentence, all_words):
     tokenized_sentence = [stem(word) for word in tokenized_sentence]
     bag = zeros(len(all_words))
     
-    for idx, w in enumerate(all_words):
-        if w in tokenized_sentence:
-            bag[idx] = 1.0
+    for w in all_words:
+        bag[w == tokenized_sentence] = 1.0
 
     return bag
-
-
-
