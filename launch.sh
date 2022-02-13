@@ -1,6 +1,6 @@
-cd chatbot-backend
+cd backend
 sh launch.sh &
 
-cd ../chatbot-frontend
+cd ../frontend
 yarn
 yarn run dev
