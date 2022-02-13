@@ -10,7 +10,6 @@ Development is only supported on Arch Linux.
 
 ```bash
 sh requirements_arch.sh
-yarn
 ```
 
 ### Usage
