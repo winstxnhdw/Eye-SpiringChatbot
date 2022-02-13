@@ -70,18 +70,25 @@ export default {
       })
     },
 
-    shake_chat(element: string) {
-      gsap.to(element, {
-        x: '+=2',
-        y: '+=2',
-        repeat: 20,
-        duration: 0.02
-      })
+    shake_chat() {
+      gsap.fromTo(
+        '.chat-box',
+        {
+          x: '0',
+          y: '0'
+        },
+        {
+          x: '2',
+          y: '2',
+          repeat: 20,
+          duration: 0.02
+        }
+      )
     },
 
     async send_message() {
       if (this.message === '') {
-        this.shake_chat('.chat-box')
+        this.shake_chat()
         return
       }
 

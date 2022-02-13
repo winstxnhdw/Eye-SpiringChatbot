@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import gsap from 'gsap'
 import { onMounted } from 'vue'
 
