@@ -1,6 +1,6 @@
-def debug_print(text: str):
-    
-    """
-    Prints text to stdout.
-    """
-    print(text, flush=True)
+"""
+Prints text to stdout.
+
+:param text:    string to print
+"""
+debug_print = lambda text: print(text, flush=True)
