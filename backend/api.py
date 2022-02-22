@@ -8,7 +8,7 @@ app = init_server()
 bot = ChatBot()
 
 @app.route('/messages', methods=['POST'])
-def reply():
+def reply() -> str:
     
     debug_print(f"Received message: {request.json['text']}")
     return bot.reply(request.json['text'])
