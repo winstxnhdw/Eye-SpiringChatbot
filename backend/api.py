@@ -14,7 +14,9 @@ def reply() -> str:
     return bot.reply(request.json['text'])
 
 def main():
-    app.run(host='0.0.0.0', port=int(env.get('PORT', 5000)), debug=True)
+
+    port = int(env.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
 
 if __name__ == "__main__":
     main()
