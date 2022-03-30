@@ -13,5 +13,8 @@ def reply():
     debug_print(f"Received message: {request.json['text']}")
     return bot.reply(request.json['text'])
 
-if __name__ == "__main__":
+def main():
     app.run(host='0.0.0.0', port=int(env.get('PORT', 5000)), debug=True)
+
+if __name__ == "__main__":
+    main()
