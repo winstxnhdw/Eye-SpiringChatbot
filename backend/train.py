@@ -110,7 +110,7 @@ def main():
         "tags": tags
     }
 
-    path = "model/data.pth"
+    path = "bin/data.pth"
     torch.save(data, path)
 
     print(f'Training complete! File saved to {path}')
