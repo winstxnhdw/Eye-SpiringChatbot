@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cd backend
 sh launch.sh &
 
