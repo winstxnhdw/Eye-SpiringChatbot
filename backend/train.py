@@ -27,7 +27,7 @@ def main():
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-    with open("data/intents.json", 'r') as f:
+    with open("app/data/intents.json", 'r') as f:
         intents = json.load(f)
 
     all_words =[]
@@ -110,7 +110,7 @@ def main():
         "tags": tags
     }
 
-    path = "bin/data.pth"
+    path = "app/bin/data.pth"
     torch.save(data, path)
 
     print(f'Training complete! File saved to {path}')
