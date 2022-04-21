@@ -5,7 +5,7 @@ import torch.nn as nn
 from numpy import array
 from torch.utils.data import Dataset, DataLoader
 from libs.nltk_utils import bag_of_words, stem, tokenize
-from libs.model import NeuralNet
+from app.libs.model import NeuralNet
 
 class ChatDataset(Dataset):
     

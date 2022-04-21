@@ -7,4 +7,4 @@ RUN python -m pip install --upgrade pip
 RUN pip install -r requirements.txt
 RUN python -c "import nltk; nltk.download('punkt', download_dir='/usr/local/nltk_data')"
 
-CMD ["python", "-u", "api.py"]
+CMD ["python", "-u", "app/api.py"]
