@@ -1,6 +1,6 @@
 # Eye-SpiringChatbot
 
-> The organisers have taken down the website.
+>**Note**: The organisers have taken down the website.
 
 > Update: The server hosting the backend, Heroku, has been compromised. As such, this app will not work for the time being. Read more [here](https://status.heroku.com/incidents/2413).
 
