@@ -57,7 +57,7 @@ export default {
     zoom() {
       gsap.to('.chat-box', {
         scale: this.zoom_scale,
-        duration: 0.5,
+        duration: 0.25,
         ease: 'Expo.easeOut'
       })
     },
@@ -65,7 +65,7 @@ export default {
     unzoom() {
       gsap.to('.chat-box', {
         scale: 1.0,
-        duration: 0.5,
+        duration: 0.25,
         ease: 'Expo.easeOut'
       })
     },
