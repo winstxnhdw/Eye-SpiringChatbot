@@ -203,7 +203,7 @@ export default {
 .chat-box {
   width: 45vw;
   height: 60vh;
-  box-shadow: inset 0 0 0 500px rgba(255, 255, 255, 0.6);
+  box-shadow: inset 0 0 0 500px rgba(255, 255, 255, 0.4);
   border-radius: 10px;
   margin-left: auto;
   margin-right: auto;
@@ -213,7 +213,7 @@ export default {
   .chat-box {
     width: 100%;
     height: 60vh;
-    box-shadow: inset 0 0 0 500px rgba(255, 255, 255, 0.6);
+    box-shadow: inset 0 0 0 500px rgba(255, 255, 255, 0.4);
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
