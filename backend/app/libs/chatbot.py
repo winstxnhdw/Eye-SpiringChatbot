@@ -14,7 +14,7 @@ class ChatBot:
         with open("app/data/intents.json", 'r') as f:
             self.intents = load(f)
 
-        data = torch.load("bin/data.pth")
+        data = torch.load("app/bin/data.pth")
         input_size = data["input_size"]
         hidden_size = data["hidden_size"]
         output_size = data["output_size"]
